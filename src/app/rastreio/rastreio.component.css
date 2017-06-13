@@ -1,0 +1,7 @@
+:host /deep/ .highlightSRO {
+    display: none
+}
+
+:host /deep/ table {
+    margin-top: 30px;
+}
