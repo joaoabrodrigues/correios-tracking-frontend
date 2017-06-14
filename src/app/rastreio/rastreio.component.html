@@ -1,7 +1,52 @@
 <div class="container">
     <div class="row">
-        <br/>
-        <div [innerHTML]="conteudo" class="row">
+        <div style="width:100%; text-align:center;">
+            <h3>{{ conteudo?.objeto.numero }}</h3>
+            <span>{{ conteudo?.objeto.categoria }}</span>
         </div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Local</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="text-align:center; vertical-align:middle;">
+                        <strong>
+                            13/06/2017 12:29
+                        </strong>
+                    </td>
+                    <td>CTE CAJAMAR - CAJAMAR/SP</td>
+                    <td>Objeto encaminhado</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Em trânsito para CTE CURITIBA - CURITIBA/PR</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" style="text-align:center; vertical-align:middle;">
+                        <strong>
+                            06/06/2017 18:35
+                        </strong>
+                    </td>
+                    <td>AGF PORTAL DE LIMEIRA - Limeira/SP</td>
+                    <td>Objeto encaminhado</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Em trânsito para CTE CAMPINAS - INDAIATUBA/SP</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; vertical-align:middle;">
+                        <strong>
+                            06/06/2017 15:36
+                        </strong>
+                    </td>
+                    <td>AGF PORTAL DE LIMEIRA - Limeira/SP</td>
+                    <td>Objeto postado</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

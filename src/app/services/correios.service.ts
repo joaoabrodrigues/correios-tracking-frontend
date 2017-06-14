@@ -11,13 +11,9 @@ export class CorreiosService {
 
   getStatusCorreio(codigo) {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': '*' });
-    const body = new URLSearchParams();
-    body.set('Objetos', codigo);
     let options = new RequestOptions({ headers : headers });
-    return this._http.post('http://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm', body.toString(), options)
+    return this._http.get(`https://correios-track.herokuapp.com/rest/track/${codigo}`)
                      .toPromise()
-                     .then((resp:Response) => resp.text());
+                     .then((resp:Response) => resp.json());
   }
-
-
 }
