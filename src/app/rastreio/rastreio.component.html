@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 <div class="container">
     <div class="align-center" *ngIf="(conteudo?.objeto.erro)">
         <h4>{{ conteudo?.objeto.erro }}</h4>
@@ -7,7 +9,7 @@
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     </div>
     <div class="row" *ngIf="(conteudo?.objeto && !conteudo?.objeto.erro)">
-        <div class="align-center">
+        <div class="align-center" style="margin: 20px">
             <h3>{{ conteudo?.objeto.numero }}</h3>
             <span>{{ conteudo?.objeto.categoria }}</span>            
         </div>
