@@ -11,11 +11,12 @@
     <div class="row" *ngIf="(conteudo?.objeto && !conteudo?.objeto.erro)">
         <div class="align-center" style="margin: 20px">
             <h3>{{ conteudo?.objeto.numero }}</h3>
-            <span>{{ conteudo?.objeto.categoria }}</span>            
+            <span>{{ conteudo?.objeto.categoria }}</span>
+            <i class="fa fa-truck"></i>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
-                <thead>
+                <thead class="thead-inverse">
                     <tr>
                         <th>Data</th>
                         <th>Local</th>
@@ -23,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody *ngFor="let evento of conteudo?.objeto.evento">
-                    <tr class="info">
+                    <tr class="table-active">
                         <td rowspan="2" style="text-align:center; vertical-align:middle;">
                             <strong>
                                 {{ evento.data }} {{ evento.hora }}
@@ -33,7 +34,7 @@
                         <td> {{ evento.descricao }} </td>
                     </tr>
                     <tr>
-                        <td *ngIf="(evento.destino)" colspan="2"> {{ evento.descricao }} para {{ evento.destino.local }} - {{ evento.cidade }}/{{ evento.uf }} </td>
+                        <td *ngIf="(evento.destino)" colspan="2"> {{ evento.descricao }} para {{ evento.destino.local }} - {{ evento.destino.cidade }}/{{ evento.destino.uf }} </td>
                     </tr>
                 </tbody>
             </table>
