@@ -12,7 +12,7 @@ export class CorreiosService {
   getStatusCorreio(codigo) {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': '*' });
     let options = new RequestOptions({ headers : headers });
-    return this._http.get(`https://correios-track.herokuapp.com/rest/track/${codigo}`)
+    return this._http.get(`https://correios-track-service.herokuapp.com/v1/tracking/${codigo}`)
                      .toPromise()
                      .then((resp:Response) => resp.json());
   }

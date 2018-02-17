@@ -1,18 +1,18 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <div class="container">
-    <div class="align-center" *ngIf="(conteudo?.objeto.erro)">
-        <h3>{{ conteudo?.objeto.numero }}</h3>
-        <h4>{{ conteudo?.objeto.erro }}</h4>
+    <div class="align-center" *ngIf="conteudo?.objeto[0].categoria.startsWith('ERRO')">
+        <h3>{{ conteudo?.objeto[0].numero }}</h3>
+        <h4>{{ conteudo?.objeto[0].categoria }}</h4>
         <img src="http://i2.kym-cdn.com/photos/images/newsfeed/001/043/243/419.gif" alt="">
     </div>
-    <div class="align-center" *ngIf="!(conteudo?.objeto)">
+    <div class="align-center" *ngIf="!(conteudo?.objeto[0])">
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     </div>
-    <div class="row" *ngIf="(conteudo?.objeto && !conteudo?.objeto.erro)">
+    <div class="row" *ngIf="(conteudo?.objeto[0] && !conteudo?.objeto[0].categoria.startsWith('ERRO'))">
         <div class="align-center" style="margin: 20px">
-            <h3>{{ conteudo?.objeto.numero }}</h3>
-            <span>{{ conteudo?.objeto.nome }}</span>
+            <h3>{{ conteudo?.objeto[0].numero }}</h3>
+            <span>{{ conteudo?.objeto[0].nome }}</span> - <span>{{ conteudo?.objeto[0].categoria }}</span>
             <i class="fa fa-truck"></i>
         </div>
         <div class="table-responsive">
@@ -24,18 +24,18 @@
                         <th>Situação</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let evento of conteudo?.objeto.evento">
+                <tbody *ngFor="let evento of conteudo?.objeto[0].evento">
                     <tr class="table-active">
                         <td rowspan="2" style="text-align:center; vertical-align:middle;">
                             <strong>
                                 {{ evento.data }} {{ evento.hora }}
                             </strong>
                         </td>
-                        <td> {{ evento.local }} - {{ evento.cidade }}/{{ evento.uf }} </td>
+                        <td> {{ evento.unidade.local }} - {{ evento.unidade.cidade }}/{{ evento.unidade.uf }} </td>
                         <td> {{ evento.descricao }} </td>
                     </tr>
                     <tr>
-                        <td *ngIf="(evento.destino)" colspan="2"> {{ evento.descricao }} para {{ evento.destino.local }} - {{ evento.destino.cidade }}/{{ evento.destino.uf }} </td>
+                        <td *ngIf="(evento.destino)" colspan="2"> {{ evento.descricao }} para {{ evento.destino[0].local }} - {{ evento.destino[0].cidade }}/{{ evento.destino[0].uf }} </td>
                     </tr>
                 </tbody>
             </table>
